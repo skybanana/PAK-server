@@ -1,3 +1,23 @@
+# Visual Studio
+.vs/
+
+# CMake build outputs
+out/
+build/
+cmake-build-*/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / runtime artifacts
+logs/
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+
 # Prerequisites
 *.d
 

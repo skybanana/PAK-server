@@ -1,0 +1,3 @@
+{
+  "dependencies": ["asio-grpc", "boost-asio", "grpc", "protobuf"]
+}

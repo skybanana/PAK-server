@@ -1,3 +1,9 @@
 {
-  "dependencies": ["asio-grpc", "boost-asio", "grpc", "protobuf"]
+  "dependencies": [
+    "asio-grpc",
+    "boost-asio",
+    "grpc",
+    "protobuf",
+    "boost-system"
+  ]
 }

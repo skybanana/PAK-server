@@ -32,7 +32,7 @@ void PakServer::Run(uint16_t port) {
     cq_ = builder.AddCompletionQueue();
 
     server_ = builder.BuildAndStart();
-    std::cout << "sever listening on " << server_address << "\n";
+    std::cout << "server listening on " << server_address << "\n";
 
     HandleRpcs();
 }

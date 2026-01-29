@@ -23,7 +23,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Protobuf CONFIG REQUIRED)
 find_package(gRPC CONFIG REQUIRED)
 find_package(asio-grpc CONFIG REQUIRED)
-find_package(Boost CONFIG REQUIRED)
+find_package(Boost CONFIG REQUIRED COMPONENTS system)
 
 # .proto 파일들
 set(PROTO_IMPORT_DIR ${CMAKE_CURRENT_LIST_DIR}/proto)
@@ -78,4 +78,18 @@ target_link_libraries(test-client
     absl::flags_parse
     absl::log_initialize
     absl::check
+)
+
+add_executable(udp_test_client "test/client/udp_test_client.cpp")
+
+target_link_libraries(udp_test_client
+  PRIVATE
+    Boost::system
+)
+
+add_executable(udp_test_server "test/server/udp_test_server.cpp")
+
+target_link_libraries(udp_test_server
+  PRIVATE
+    Boost::system
 )

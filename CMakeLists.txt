@@ -44,6 +44,11 @@ target_link_libraries(PAK_proto
     gRPC::grpc++
 )
 
+# proto 파일 전체 수집 (서브디렉토리 포함)
+file(GLOB_RECURSE PROTO_FILES CONFIGURE_DEPENDS
+  "${CMAKE_CURRENT_SOURCE_DIR}/proto/*.proto"
+)
+
 # asio-grpc 헬퍼로 proto 코드 생성
 # - GENERATE_GRPC: *.grpc.pb.{h,cc}도 함께 생성
 # - TARGET: 생성된 소스들을 PAK-server 타겟에 자동으로 붙임
@@ -53,7 +58,7 @@ asio_grpc_protobuf_generate(
   TARGET PAK_proto
   IMPORT_DIRS ${PROTO_IMPORT_DIR}
   OUT_DIR ${PROTO_BINARY_DIR}
-  PROTOS "${CMAKE_CURRENT_SOURCE_DIR}/proto/echo.proto"
+  PROTOS ${PROTO_FILES}
 )
 
 # 이 프로젝트의 실행 파일에 소스를 추가합니다.
@@ -92,4 +97,5 @@ add_executable(udp_test_server "test/server/udp_test_server.cpp")
 target_link_libraries(udp_test_server
   PRIVATE
     Boost::system
+    PAK_proto
 )

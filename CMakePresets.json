@@ -18,6 +18,9 @@
         "CMAKE_CXX_COMPILER": "cl.exe",
         "VCPKG_TARGET_TRIPLET": "x64-windows-static",
         "VCPKG_INSTALLED_DIR": "${sourceDir}/vcpkg_installed"
+      },
+      "environment": {
+        "VCPKG_ROOT": "D:/devTools/vcpkg"
       }
     },
     {
